@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>Clock</title>
+    </head>
+    <body>
+        <h3>The current time is:</h3>
+        <p id="current-time"></p>
+    </body>
+</html>
+
+<script>
+
+    var showTime = setInterval(function () { showCurrentTime() }, 1000);
+
+    function insertZero(input) {
+
+        if (input < 10) {
+            return "0" + input.toString();
+        }
+        else {
+            return input;
+        }
+
+    }
+
+    function showCurrentTime() {
+
+        var colon = ":";
+
+        var currentDate = new Date();
+
+        var hour = currentDate.getHours();
+        var minute = currentDate.getMinutes();
+        var second = currentDate.getSeconds();
+
+        document.getElementById("current-time").innerHTML = insertZero(hour) + colon + insertZero(minute) + colon + insertZero(second);
+
+    }
+
+</script>

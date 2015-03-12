@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>Decimal to Hexadecimal</title>
+    </head>
+    <body onload="numberToHexa();">
+    </body>
+</html>
+
+<script>
+
+    function hexaValue(input) {
+
+        if (input < 10) {
+            return input;
+        }
+        else {
+            switch (input) {
+                case 10:
+                    return "A";
+                    break;
+                case 11:
+                    return "B";
+                    break;
+                case 12:
+                    return "C";
+                    break;
+                case 13:
+                    return "D";
+                    break;
+                case 14:
+                    return "E";
+                    break;
+                default:
+                    return "F";
+                    break;
+            }
+        }
+
+    }
+
+    function numberToHexa() {
+
+        var inputValue = prompt("Enter a number", 1);
+        var result = "";
+
+        if (!isNaN(inputValue)) {
+
+            if (inputValue > 0) {
+
+                while (inputValue > 0) {
+
+                    var tempValue = inputValue % 16;
+
+                    inputValue = Math.floor(inputValue / 16);
+
+                    result = hexaValue(tempValue) + result;
+
+                }
+
+                alert(result);
+
+            }
+            else {
+                alert ("Input is negative number.")
+            }
+        }
+        else {
+            alert("Input is not a number.")
+        }
+
+    }
+
+</script>
